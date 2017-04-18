@@ -38,6 +38,23 @@ def get_probabilities(layer, weights, val, bias):
             return tf.nn.sigmoid(tf.matmul(val, tf.transpose(weights)) + bias)
 
 
+def get_linear_probabilities(layer, weights, val, bias):
+    '''
+    Find the probabilities associated with layer specified
+    :param layer: Hidden layer or visible layer, specified as string
+    :param weights: Tensorflow placeholder for weight matrix
+    :param val: Input units, hidden or visible as binary or float
+    :param bias: Bias associated with the computation, opposite of the input
+    :return: A tensor of probabilities associated with the layer specified
+    '''
+    if layer == 'hidden':
+        with tf.name_scope("Hidden_Probabilities"):
+            return tf.matmul(val, weights) + bias
+    elif layer == 'visible':
+        with tf.name_scope("Visible_Probabilities"):
+            return tf.nn.sigmoid(tf.matmul(val, tf.transpose(weights)) + bias)
+
+
 def gibbs(steps, v, hb, vb, W):
     '''
     Use the Gibbs sampler for a network of hidden and visible units.
@@ -58,6 +75,25 @@ def gibbs(steps, v, hb, vb, W):
         return v
 
 
+def gibbs_linear(steps, v, hb, vb, W):
+    '''
+    Use the Gibbs sampler for a network of hidden and visible units.
+    :param steps: Number of steps to run the algorithm
+    :param v: Input data
+    :param hb: Hidden Bias
+    :param vb: Visible bias
+    :param W: Weight matrix
+    :return: Returns a sampled version of the input
+    '''
+    with tf.name_scope("Gibbs_sampling"):
+        for i in range(steps):
+            hidden_p = get_linear_probabilities('hidden', W, v, hb)
+            poshidstates = sample_linear(hidden_p)
+
+            visible_p = get_linear_probabilities('visible', W, poshidstates, vb)
+            v = sample_linear(visible_p)
+        return v
+
 def sample(probabilities):
     '''
     Sample a tensor based on the probabilities
@@ -65,6 +101,14 @@ def sample(probabilities):
     :return: A sampled sampled tensor
     '''
     return tf.floor(probabilities + tf.random_uniform(tf.shape(probabilities), 0, 1))
+
+def sample_linear(probabilities):
+    '''
+        Create a tensor based on the probabilities by adding gaussian noise from the input
+        :param probabilities: A tensor of probabilities given by 'rbm.get_probabilities'
+        :return: The addition of noise to the original probabilities
+        '''
+    return tf.add(probabilities, tf.random_uniform(tf.shape(probabilities)))
 
 
 def plot_weight_update(x=None, y=None):
