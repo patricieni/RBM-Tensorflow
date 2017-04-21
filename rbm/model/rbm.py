@@ -38,7 +38,7 @@ def get_probabilities(layer, weights, val, bias):
             return tf.nn.sigmoid(tf.matmul(val, tf.transpose(weights)) + bias)
 
 
-def get_linear_probabilities(layer, weights, val, bias):
+def get_gaussian_probabilities(layer, weights, val, bias):
     '''
     Find the probabilities associated with layer specified
     :param layer: Hidden layer or visible layer, specified as string
@@ -71,11 +71,11 @@ def gibbs(steps, v, hb, vb, W):
             h = sample(hidden_p)
 
             visible_p = get_probabilities('visible', W, h, vb)
-            v = sample(visible_p)
-        return v
+            #v = sample(visible_p)
+        return visible_p
 
 
-def gibbs_linear(steps, v, hb, vb, W):
+def gibbs_gaussian(steps, v, hb, vb, W):
     '''
     Use the Gibbs sampler for a network of hidden and visible units.
     :param steps: Number of steps to run the algorithm
@@ -87,12 +87,13 @@ def gibbs_linear(steps, v, hb, vb, W):
     '''
     with tf.name_scope("Gibbs_sampling"):
         for i in range(steps):
-            hidden_p = get_linear_probabilities('hidden', W, v, hb)
-            poshidstates = sample_linear(hidden_p)
+            hidden_p = get_gaussian_probabilities('hidden', W, v, hb)
+            poshidstates = sample_gaussian(hidden_p)
 
-            visible_p = get_linear_probabilities('visible', W, poshidstates, vb)
-            v = sample_linear(visible_p)
-        return v
+            visible_p = get_gaussian_probabilities('visible', W, poshidstates, vb)
+            #v = sample_gaussian(visible_p)
+        return visible_p
+
 
 def sample(probabilities):
     '''
@@ -102,13 +103,14 @@ def sample(probabilities):
     '''
     return tf.floor(probabilities + tf.random_uniform(tf.shape(probabilities), 0, 1))
 
-def sample_linear(probabilities):
+
+def sample_gaussian(probabilities, stddev=1):
     '''
         Create a tensor based on the probabilities by adding gaussian noise from the input
         :param probabilities: A tensor of probabilities given by 'rbm.get_probabilities'
         :return: The addition of noise to the original probabilities
         '''
-    return tf.add(probabilities, tf.random_uniform(tf.shape(probabilities)))
+    return tf.add(probabilities, tf.random_normal(tf.shape(probabilities), mean=0.0, stddev=stddev))
 
 
 def plot_weight_update(x=None, y=None):
@@ -118,3 +120,17 @@ def plot_weight_update(x=None, y=None):
     plt.plot(x, y, 'r--')
     plt.show()
 
+
+def free_energy(v, weights, vbias, hbias):
+    '''
+    Compute the free energy for  a visible state
+    :param v:
+    :param weights:
+    :param vbias:
+    :param hbias:
+    :return:
+    '''
+    vbias_term = tf.matmul(v, tf.transpose(vbias))
+    x_b = tf.matmul(v, weights) + hbias
+    hidden_term = tf.reduce_sum(tf.log(1 + tf.exp(x_b)))
+    return - hidden_term - vbias_term
