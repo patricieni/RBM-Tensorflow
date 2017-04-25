@@ -71,6 +71,7 @@ def gibbs(steps, v, hb, vb, W):
             h = sample(hidden_p)
 
             visible_p = get_probabilities('visible', W, h, vb)
+            v = visible_p
             #v = sample(visible_p)
         return visible_p
 
