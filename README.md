@@ -1,5 +1,5 @@
-Introduction to Restricted Boltzmann Machine and Deep Boltzmann Machines using Tensorflow
-(with Patric Fulop)
+Introduction to Restricted Boltzmann Machines using Tensorflow
+
 =======
 Material
 --------
@@ -30,5 +30,8 @@ jupyter notebook
 
 [Jupyter Notebook](http://jupyter.org/)
 
+
 =======
 Outline
+-------
+To follow
