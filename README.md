@@ -1,5 +1,4 @@
 Introduction to Restricted Boltzmann Machines using Tensorflow
-
 ====
 Material
 --------
@@ -29,9 +28,8 @@ jupyter notebook
 [Numpy 1.12.0](www.numpy.org)
 
 [Jupyter Notebook](http://jupyter.org/)
-
-
 ====
 Outline
 -------
+
 To follow
