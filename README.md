@@ -1,6 +1,6 @@
 Introduction to Restricted Boltzmann Machine and Deep Boltzmann Machines using Tensorflow
 (with Patric Fulop)
-====
+=======
 Material
 --------
 The notebook tutorial reconstructs some digits doing unsupervised learning.
@@ -11,9 +11,10 @@ has some derivations for classic RBMs and the Contrastive Divergence algorithm.
 
 **Installation notes**
 
-I suggest to create a special [environment](https://conda.io/docs/using/envs.html) for any Tensorflow related work using [Anaconda](Anaconda-Navigator:https://docs.continuum.io/anaconda/navigator)
-All dependencies get automatically installed (i.e. Python/Jupyter/numpy)
+I suggest to create a special [environment](https://conda.io/docs/using/envs.html) for any Tensorflow related work using [Anaconda](Anaconda-Navigator:https://docs.continuum.io/anaconda/navigator). All dependencies get automatically installed (i.e. Python/Jupyter/numpy)
+
 ```
+
 conda create --name tensorflow-env
 source activate tensorflow-env
 jupyter notebook
@@ -23,11 +24,11 @@ jupyter notebook
 
 [Python 3.5.2](https://www.python.org/)
 
-[Matplotlib 2.0.0] (http://matplotlib.org/)
+[Matplotlib 2.0.0](http://matplotlib.org/)
 
-[Numpy 1.12.0] (www.numpy.org)
+[Numpy 1.12.0](www.numpy.org)
 
-[Jupyter Notebook] (http://jupyter.org/)
+[Jupyter Notebook](http://jupyter.org/)
 
-===
+=======
 Outline
