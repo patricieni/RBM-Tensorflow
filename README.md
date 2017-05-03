@@ -1,6 +1,6 @@
 Introduction to Restricted Boltzmann Machines using Tensorflow
 
-=======
+====
 Material
 --------
 The notebook tutorial reconstructs some digits doing unsupervised learning.
@@ -31,7 +31,7 @@ jupyter notebook
 [Jupyter Notebook](http://jupyter.org/)
 
 
-=======
+====
 Outline
 -------
 To follow
