@@ -28,7 +28,7 @@ jupyter notebook
 [Numpy 1.12.0](www.numpy.org)
 
 [Jupyter Notebook](http://jupyter.org/)
-====
+
 Outline
 -------
 
