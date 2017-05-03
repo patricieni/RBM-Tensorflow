@@ -13,11 +13,9 @@ has some derivations for classic RBMs and the Contrastive Divergence algorithm.
 I suggest to create a special [environment](https://conda.io/docs/using/envs.html) for any Tensorflow related work using [Anaconda](Anaconda-Navigator:https://docs.continuum.io/anaconda/navigator). All dependencies get automatically installed (i.e. Python/Jupyter/numpy)
 
 ```
-
 conda create --name tensorflow-env
 source activate tensorflow-env
 jupyter notebook
-
 ```
 [Tensorflow 1.0.0](https://www.tensorflow.org/)
 
