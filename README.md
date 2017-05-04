@@ -38,5 +38,6 @@ Similarly, the joint probability of a restricted boltzmann machine can be modell
 Model and Learning 
 ------
 The goal is to learn the joint probability distribution that maximizes the probability over the data, also known as likelihood. 
-
+![RBM Energy](https://github.com/patricieni/RBM-Tensorflow/blob/master/img/rbm_energy.png)
+![RBM Likelihood](https://github.com/patricieni/RBM-Tensorflow/blob/master/img/rbm_likelihood.png)
 
