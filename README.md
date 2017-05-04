@@ -3,6 +3,7 @@ Introduction to Restricted Boltzmann Machines using Tensorflow
 Material
 --------
 The notebook tutorials reconstructs some digits doing unsupervised learning and some dummy datasets. The next phase is to extend it to Deep Boltzmann Machines and Deep Belief Networks. 
+There are two other implementations of RBMs that I wrote, one in pure python using numpy and one in Matlab. I prefer Matlab. 
 
 **TODO:** 
 - Ideally, this should be seamlessly integrated with Tensorflow's optimization libraries. Especially for DBM where Variational Inference techniques are already written in Tensorflow. 
