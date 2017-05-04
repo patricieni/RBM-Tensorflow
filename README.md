@@ -4,7 +4,7 @@ Material
 --------
 The notebook tutorials reconstructs some digits doing unsupervised learning and some dummy datasets. The next phase is to extend it to Deep Boltzmann Machines and Deep Belief Networks. 
 
-**TODO: 
+**TODO:** 
 - Ideally, this should be seamlessly integrated with Tensorflow's optimization libraries. Especially for DBM where Variational Inference techniques are already written in Tensorflow. 
 - Add Annealed Importance Sampling to test the model
 - Print in Tensorboard the weight images after training correctly
