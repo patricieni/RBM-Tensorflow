@@ -30,15 +30,14 @@ jupyter notebook
 Outline
 -------
 
+* [RBM Model](#rbm-model)
+* [Binary / Gaussian RBM on BAS(bars-as-stripes) dataset](#binary--gaussian-rbm-on-basbars-as-stripes-dataset)
+* [MNIST reconstruction](#MNIST-reconstruction)
+
 Restricted Boltzmann Machines are a class of undirected probabilistic graphical models of joint probability distributions (Markov Random Fields), where the nodes in the graph are random variables. 
 The latter are well known and extensively studied in the physics literature, with the ferromagnetic Ising spin model from statistical mechanics being the best example. Atoms are fixed on a 2-D (or 1-D) lattice and neighbours interact with each other. We consider the energy associated with a spin state of +/- 1 and we are interested in the possible states the system takes. It turns out that the joint probability of such a system is modelled by the Boltzmann (Gibbs) distribution.  
 
 Similarly, the joint probability of a restricted boltzmann machine can be modelled by the gibbs distribution. Furthermore, an RBM can be considered a stochastic neural network where you have a set of visible nodes that take some data as input and a set of hidden nodes that encode a lower dimensional representation of that data. Because you can think of your input as a high dimension probability distribution, the goal is to learn the joint probability of the ensemble (visible-hidden). 
-
-## Contents
-* [RBM Model](#rbm--model)
-* [Binary / Gaussian RBM on BAS(bars-as-stripes) dataset](#binary--gaussian-rbm-on-bas-dataset)
-* [MNIST reconstruction](#mnist--reconstruction)
 
 
 ### RBM Model
