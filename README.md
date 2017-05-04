@@ -2,7 +2,13 @@ Introduction to Restricted Boltzmann Machines using Tensorflow
 ====
 Material
 --------
-The notebook tutorial reconstructs some digits doing unsupervised learning.
+The notebook tutorials reconstructs some digits doing unsupervised learning and some dummy datasets. The next phase is to extend it to Deep Boltzmann Machines and Deep Belief Networks. 
+
+**TODO: 
+- Ideally, this should be seamlessly integrated with Tensorflow's optimization libraries. Especially for DBM where Variational Inference techniques are already written in Tensorflow. 
+- Add Annealed Importance Sampling to test the model
+- Print in Tensorboard the weight images after training correctly
+- Explain better the Gaussian approach and the relation to Gaussian Mixture Models
 
 There is also an accompanying presentation I gave for my group at ENS.
 The second part of the [presentation](https://drive.google.com/file/d/0B8w_D99ccMLYc2lEczlPZlhKNnM/view?usp=sharing)
@@ -16,6 +22,10 @@ I suggest to create a special [environment](https://conda.io/docs/using/envs.htm
 conda create --name tensorflow-env
 source activate tensorflow-env
 jupyter notebook
+```
+To use Tensoboard for visualization: 
+```
+tensorboard --logdir="/path/to/logs"
 ```
 [Tensorflow 1.0.0](https://www.tensorflow.org/)
 
